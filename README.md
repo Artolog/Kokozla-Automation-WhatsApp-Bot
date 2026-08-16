@@ -43,7 +43,7 @@ npm install
 ### Step 4 — Update your number in index.js
 Find this line:
 ```
-const OWNER_NUMBER = "27762433565@s.whatsapp.net";
+const OWNER_NUMBER = "27749333841@s.whatsapp.net";
 ```
 Make sure it matches your WhatsApp number (27 + number without 0)
 
