@@ -1,104 +1,59 @@
-# Kokozela Logistics WhatsApp Bot
-### Built by Kokozela Automations
+# Kokozla Automation WhatsApp Bot
+
+A WhatsApp-based booking and automation system designed to simplify appointment scheduling and customer communication for small businesses.
 
 ---
 
-## What this bot does
-- Greets customers automatically
-- Provides instant delivery quotes
-- Collects full booking details
-- Saves every booking to Google Sheets
-- Notifies Dumisani instantly on WhatsApp
-- Handles pricing enquiries 24/7
+### 📋 Overview
+This bot allows users to book appointments, receive confirmations, and interact through WhatsApp. It uses Google Sheets as a simple and effective backend for storing booking data.
 
 ---
 
-## Setup Guide (Step by Step)
+### ✨ Features
+- Automated booking conversation flow on WhatsApp
+- Real-time data storage using Google Sheets
+- Confirmation messages and basic notifications
+- Built with scalability and reliability in mind
+- Includes supporting components developed in C# / .NET MAUI
 
-### Step 1 — Install Node.js on Garuda Linux
+---
+
+### 🛠️ Tech Stack
+- **Main**: Node.js + Baileys
+- **Database**: Google Sheets API
+- **Additional**: C# / .NET MAUI
+- **Other**: JavaScript
+
+---
+
+### 🚀 Getting Started
+
+1. Clone the repository
 ```bash
-sudo pacman -S nodejs npm
-node --version  # should show v18+
-```
+git clone https://github.com/Artolog/Kokozla-Automation-WhatsApp-Bot.git
+cd Kokozla-Automation-WhatsApp-Bot
 
-### Step 2 — Install bot dependencies
-```bash
-cd kokozela-bot
-npm install
-```
+2. Install dependencies
+    npm install
 
-### Step 3 — Set up Google Sheets (to save bookings)
+3. Set up your environment variables (create a .env file)
 
-1. Go to console.cloud.google.com
-2. Create a new project called "Kokozela Bot"
-3. Enable the Google Sheets API
-4. Create a Service Account
-5. Download the JSON key — save it as credentials.json in this folder
-6. Create a Google Sheet called "Kokozela Bookings"
-7. Add these headers in row 1:
-   Timestamp | Ref | Name | Number | Pickup | Dropoff | Item | DateTime | Quote | Status
-8. Share the sheet with your service account email (found in credentials.json)
-9. Copy the Sheet ID from the URL and paste it in index.js where it says YOUR_GOOGLE_SHEET_ID_HERE
+4. Run the bot
+    node index.js
 
-### Step 4 — Update your number in index.js
-Find this line:
-```
-const OWNER_NUMBER = "27749333841@s.whatsapp.net";
-```
-Make sure it matches your WhatsApp number (27 + number without 0)
+# 📸 Screenshots
+<img width="325" height="647" alt="image" src="https://github.com/user-attachments/assets/b708722c-9ece-4154-866a-5e9b17b5f2c2" />
+<img width="325" height="647" alt="image" src="https://github.com/user-attachments/assets/873a4b3b-9920-4feb-b8ed-f16cd3ef1c97" />
+<img width="325" height="647" alt="image" src="https://github.com/user-attachments/assets/4cfb79b7-a079-4174-bd0e-47c687c2b185" />
+<img width="325" height="647" alt="image" src="https://github.com/user-attachments/assets/1e623fb0-b29a-4203-8ca5-62a2f62af64b" />
+<img width="325" height="647" alt="image" src="https://github.com/user-attachments/assets/77e10410-dda7-4bce-8cfe-fb062160ae04" />
+<img width="325" height="647" alt="image" src="https://github.com/user-attachments/assets/f0df1e57-a6d3-4ded-b1cd-ce0d22b47315" />
 
-### Step 5 — Run the bot
-```bash
-node index.js
-```
+# 📌 Status
+Actively under development. Improving stability, error handling, and adding more automation features.
+Still have to make it learn from every conversation also.
 
-A QR code will appear in the terminal.
-Open WhatsApp on your phone → Linked Devices → Link a Device
-Scan the QR code.
 
-The bot is now live on your WhatsApp number.
 
-### Step 6 — Keep it running (optional)
-Install PM2 to keep the bot running even after closing the terminal:
-```bash
-npm install -g pm2
-pm2 start index.js --name kokozela-bot
-pm2 save
-pm2 startup
-```
 
----
 
-## Bot Flow Summary
-
-```
-Customer messages → Menu appears
-├── 1. Quote → asks type, pickup, dropoff → gives estimate
-├── 2. Book → collects name, number, addresses, item, time → saves to sheet + notifies you
-├── 3. Pricing → sends full price list
-└── 4. Human → notifies you to take over
-```
-
----
-
-## Folder Structure
-```
-kokozela-bot/
-├── index.js          ← main bot logic
-├── package.json      ← dependencies
-├── credentials.json  ← Google Sheets key (you add this)
-├── auth_info/        ← WhatsApp session (auto-created on first run)
-└── README.md         ← this file
-```
-
----
-
-## Pricing this service to clients (Kokozela Automations)
-- Starter Bot: R1,500 setup + R300/month
-- Business Bot: R3,000 setup + R500/month
-- Premium Bot: R5,000 setup + R800/month
-
----
-
-Built with Baileys (WhatsApp Web API) + Google Sheets API
-Kokozela Automations — Automate. Grow. Dominate.
